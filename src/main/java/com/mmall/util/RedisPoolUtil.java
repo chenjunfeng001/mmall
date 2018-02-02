@@ -100,9 +100,11 @@ public class RedisPoolUtil {
 	
 	public static void main(String[] args) {
 		Jedis jedis = RedisPool.getJedis();
-		RedisPoolUtil.set("keyTest", "value");
+		//RedisPoolUtil.set("keyTest", "value");
 		String string = RedisPoolUtil.get("keyTest");
-		System.out.println(string);
+		Long del = RedisPoolUtil.del("keyTest");
+		
+		System.out.println(del);
 		
 	}
 

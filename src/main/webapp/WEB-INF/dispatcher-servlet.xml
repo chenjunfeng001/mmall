@@ -20,8 +20,10 @@
                     </list>
                 </property>
             </bean>
-            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-                <property name="supportedMediaTypes">
+<!--             <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+ -->          
+  			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">      
+ 				<property name="supportedMediaTypes">
                     <list>
                         <value>application/json;charset=UTF-8</value>
                     </list>
@@ -39,5 +41,12 @@
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
 
-
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"/>
 </beans>
